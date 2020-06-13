@@ -59,15 +59,6 @@ public class BaseFunc {
 //        }
 //    }
 
-    public static void moveToElement(WebDriver driver, WebElement webElement) {
-        scrollToElement(driver, webElement);
-        new Actions(driver).moveToElement(webElement).build().perform();
-    }
-
-    public static void scrollToElement(WebDriver driver, WebElement element) {
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true); window.scrollBy(0,-100);", element);
-    }
-
     public void closePage() {
         driver.quit();
     }

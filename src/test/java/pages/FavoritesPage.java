@@ -28,11 +28,8 @@ public class FavoritesPage {
     }
 
     public void addToFavorites() throws InterruptedException {
-//        JavascriptExecutor js = (JavascriptExecutor) baseFunc.driver;
-//        js.executeScript("window.scrollBy(0,500)", "");
         Thread.sleep(2000);
         baseFunc.getElement(ADDTOFAVORITES).click();
-//        baseFunc.getElement(ALERTOK).click();
     }
 
     public void goToFavoritesPage() {

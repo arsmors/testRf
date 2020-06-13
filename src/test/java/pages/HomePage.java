@@ -13,21 +13,12 @@ import java.util.function.Consumer;
 
 public class HomePage {
     BaseFunc baseFunc;
-    WebDriver driver;
-    Actions action;
-
-    Consumer<By> hover = (By by) -> {
-        action.moveToElement(driver.findElement(by))
-                .perform();
-    };
 
     public String homePage = "https://reklama.bb.lv/ru/";
     private final By MAIN = By.xpath("//td[@class=\"img\"]");
-    private final By MAIN_MENU = By.xpath("//*[@class=\"menu_main\"]");
     private final By CHECKBOX = By.xpath("//a[@class=\"fav-add\"]");
     private final By ADS = By.xpath("//tr[@onmouseover=\"this.className = 'over'\"]");
     private final By AddToFavIcon = By.xpath("//tr[contains(@class,'over')]//a[@class='fav-add']");
-    private final By AddToFavIcon2 = By.xpath("//a[@class='fav-add']");
 
     public HomePage(BaseFunc baseFunc) {
         this.baseFunc = baseFunc;
@@ -66,14 +57,4 @@ public class HomePage {
         List<WebElement> items = baseFunc.getElements(MAIN);
         return items.get(id);
     }
-
-//    public void selectMenuItem(String item) {
-//        List<WebElement> menuItems = baseFunc.getElements(MAIN_MENU);
-//        for (int i = 0; i < menuItems.size(); i++) {
-//            if (menuItems.get(i).getText().equals(item)) {
-//                menuItems.get(i).click();
-//                break;
-//            }
-//        }
-//    }
 }

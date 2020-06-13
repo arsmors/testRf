@@ -31,33 +31,19 @@ public class MyStepdefs {
     @Then("ads are displayed on page")
     public void adsAreDisplayedOnPage() throws InterruptedException {
         favoritesPage.goToFavoritesPage();
-//        homePage.selectMenuItem("Memo");
         favoritesPage.checkAllAdsDisplayedOnPage();
     }
 
     @Then("ads count on page is similar to memo count on toolbar")
     public void adsCountOnPageIsSimilarToMemoCountOnToolbar() throws InterruptedException {
-//        homePage.selectMenuItem("Memo");
-//        favoritesPage.goToFavoritesPage();
         favoritesPage.checkMemoToolbarHasCount();
         baseFunc.closePage();
-    }
-
-    @When("user select {int} ads")
-    public void userSelectAds(int ads) {
-        homePage.chooseMultipleAdsFromList(ads);
     }
 
     @When("user add {int} to favorites")
     public void userAddAdsToFavorites(int ads) throws InterruptedException {
         homePage.addAds(ads);
 
-    }
-
-    @When("user go to {string} section")
-    public void userGoToSection(String item) {
-        homePage.openHomePage("");
-//        homePage.selectMenuItem(item);
     }
 
     @When("user search for {string} item")
