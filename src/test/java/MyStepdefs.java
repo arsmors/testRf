@@ -30,17 +30,16 @@ public class MyStepdefs {
 
     @Then("ads are displayed on page")
     public void adsAreDisplayedOnPage() throws InterruptedException {
-        favoritesPage.goToFavoritesPage();
+        homePage.openHomePage("/favorites.html");
         favoritesPage.checkAllAdsDisplayedOnPage();
     }
 
     @Then("ads count on page is similar to memo count on toolbar")
     public void adsCountOnPageIsSimilarToMemoCountOnToolbar() throws InterruptedException {
         favoritesPage.checkMemoToolbarHasCount();
-        baseFunc.closePage();
     }
 
-    @When("user add {int} to favorites")
+    @When("user add {int} ads to favorites")
     public void userAddAdsToFavorites(int ads) throws InterruptedException {
         homePage.addAds(ads);
 
@@ -55,5 +54,12 @@ public class MyStepdefs {
     @And("close browser")
     public void closeBrowser() {
         baseFunc.closePage();
+    }
+
+
+    @When("user delete {int} ads from favorites")
+    public void userDeleteAdsFromFavorites(int ads) throws InterruptedException {
+        homePage.openHomePage("/favorites.html");
+        homePage.removeAds(ads);
     }
 }

@@ -19,6 +19,8 @@ public class HomePage {
     private final By CHECKBOX = By.xpath("//a[@class=\"fav-add\"]");
     private final By ADS = By.xpath("//tr[@onmouseover=\"this.className = 'over'\"]");
     private final By AddToFavIcon = By.xpath("//tr[contains(@class,'over')]//a[@class='fav-add']");
+    private final By RemoveFromFavIcon = By.xpath("//tr[contains(@class,'over')]//a[@class='fav-remove']");
+
 
     public HomePage(BaseFunc baseFunc) {
         this.baseFunc = baseFunc;
@@ -49,5 +51,16 @@ public class HomePage {
     private WebElement getItems(int id) {
         List<WebElement> items = baseFunc.getElements(MAIN);
         return items.get(id);
+    }
+
+    public void removeAds(int ads) throws InterruptedException {
+        List<WebElement> items = baseFunc.getElements(ADS);
+        for (int i = 0; i < ads; i++) {
+            Actions builder = new Actions(baseFunc.driver);
+            builder.moveToElement(items.get(i)).perform();
+            JavascriptExecutor executor = (JavascriptExecutor) baseFunc.driver;
+            Thread.sleep(3000);
+            executor.executeScript("arguments[0].click();", baseFunc.getElement(RemoveFromFavIcon));
+        }
     }
 }
