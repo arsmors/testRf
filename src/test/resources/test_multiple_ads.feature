@@ -10,4 +10,4 @@ Feature: B description
 
     Examples:
       | category                                         | ads |
-      | /transport/cars/audi/_group1/table.html?alladv=1 | 1   |
+      | /transport/cars/audi/_group1/table.html?alladv=1 | 2   |

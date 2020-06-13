@@ -16,7 +16,7 @@ public class HomePage {
     WebDriver driver;
     Actions action;
 
-    Consumer< By > hover = (By by) -> {
+    Consumer<By> hover = (By by) -> {
         action.moveToElement(driver.findElement(by))
                 .perform();
     };
@@ -52,11 +52,14 @@ public class HomePage {
     }
 
     public void addAds(int ads) throws InterruptedException {
-        Actions builder = new Actions(baseFunc.driver);
-        builder.moveToElement(baseFunc.getElement(ADS)).perform();
-        JavascriptExecutor executor = (JavascriptExecutor) baseFunc.driver;
-        Thread.sleep(3000);
-        executor.executeScript("arguments[0].click();", baseFunc.getElement(AddToFavIcon));
+        List<WebElement> items = baseFunc.getElements(ADS);
+        for (int i = 0; i < ads; i++) {
+            Actions builder = new Actions(baseFunc.driver);
+            builder.moveToElement(items.get(i)).perform();
+            JavascriptExecutor executor = (JavascriptExecutor) baseFunc.driver;
+            Thread.sleep(3000);
+            executor.executeScript("arguments[0].click();", baseFunc.getElement(AddToFavIcon));
+        }
     }
 
     private WebElement getItems(int id) {
