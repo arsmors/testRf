@@ -42,10 +42,16 @@ public class MyStepdefs {
         baseFunc.closePage();
     }
 
-//    @When("user select {int} ads")
-//    public void userSelectAds(int ads) {
-//        homePage.chooseMultipleAdsFromList(ads);
-//    }
+    @When("user select {int} ads")
+    public void userSelectAds(int ads) {
+        homePage.chooseMultipleAdsFromList(ads);
+    }
+
+    @When("user add {int} to favorites")
+    public void userAddAdsToFavorites(int ads) throws InterruptedException {
+        homePage.addAds(ads);
+
+    }
 //
 //    @When("user go to {string} section")
 //    public void userGoToSection(String item) {
