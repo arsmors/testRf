@@ -35,13 +35,6 @@ public class HomePage {
         getItems(id).click();
     }
 
-    public void chooseMultipleAdsFromList(int ads) {
-        List<WebElement> items = baseFunc.getElements(CHECKBOX);
-        for (int i = 0; i < ads; i++) {
-            items.get(i).click();
-        }
-    }
-
     public void addAds(int ads) throws InterruptedException {
         List<WebElement> items = baseFunc.getElements(ADS);
         for (int i = 0; i < ads; i++) {

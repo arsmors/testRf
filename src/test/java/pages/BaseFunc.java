@@ -32,7 +32,7 @@ public class BaseFunc {
     }
 
     public List<WebElement> getElements(By locator) {
-        Assert.assertFalse(driver.findElements(locator).isEmpty());
+        Assert.assertFalse("Elements not found", driver.findElements(locator).isEmpty());
         return driver.findElements(locator);
     }
 

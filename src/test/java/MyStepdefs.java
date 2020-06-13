@@ -51,4 +51,9 @@ public class MyStepdefs {
         homePage.openHomePage("data/advsearch.html?cat=&sc_id=0");
         searchPage.enterSearchDetails(item);
     }
+
+    @And("close browser")
+    public void closeBrowser() {
+        baseFunc.closePage();
+    }
 }
