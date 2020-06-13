@@ -5,11 +5,12 @@ import io.cucumber.java.en.When;
 import pages.BaseFunc;
 import pages.FavoritesPage;
 import pages.HomePage;
+import pages.SearchPage;
 
 public class MyStepdefs {
     BaseFunc baseFunc = new BaseFunc();
     HomePage homePage = new HomePage(baseFunc);
-//    SearchPage searchPage = new SearchPage(baseFunc);
+    SearchPage searchPage = new SearchPage(baseFunc);
     FavoritesPage favoritesPage = new FavoritesPage(baseFunc);
 
     @Given("website with category {string}")
@@ -52,15 +53,16 @@ public class MyStepdefs {
         homePage.addAds(ads);
 
     }
-//
-//    @When("user go to {string} section")
-//    public void userGoToSection(String item) {
-//        homePage.openHomePage("");
+
+    @When("user go to {string} section")
+    public void userGoToSection(String item) {
+        homePage.openHomePage("");
 //        homePage.selectMenuItem(item);
-//    }
-//
-//    @And("search for {string} item")
-//    public void searchForItem(String item) {
-//        searchPage.enterSearchDetails(item);
-//    }
+    }
+
+    @When("user search for {string} item")
+    public void searchForItem(String item) {
+        homePage.openHomePage("data/advsearch.html?cat=&sc_id=0");
+        searchPage.enterSearchDetails(item);
+    }
 }
