@@ -15,7 +15,6 @@ public class FavoritesPage {
     }
 
     private final By ADDTOFAVORITES = By.xpath("//li[@class=\"favourite\"]");
-    private final By ALERTOK = By.xpath("//*[@id=\"alert_ok\"]");
     private final By MEMOID = By.xpath("//span[@id=\"favorites_count\"]");
     private final By MEMOPAGES = By.xpath("//div[@class=\"price\"]");
     private final By FAVPAGE = By.xpath("//a[@id=\"favorites-link\"]");
@@ -34,7 +33,7 @@ public class FavoritesPage {
     }
 
     public void checkAllAdsDisplayedOnPage() throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(3000);
         List<WebElement> listOfElements = baseFunc.getElements(MEMOPAGES);
         assertFalse("ads are not added to favorites", listOfElements.isEmpty());
     }
@@ -45,7 +44,7 @@ public class FavoritesPage {
         int ads = listOfElements.size();
         try {
             int memoToolbarId = Integer.parseInt(getMemoId().replaceAll("[^\\d.]", ""));
-            assertEquals("memo toolbar is showing incorrect qty", memoToolbarId, ads);
+            assertEquals("memo toolbar is showing incorrect qty", ads, memoToolbarId);
         } catch (Exception e) {
             throw new NullPointerException("memo toolbar is empty or showing incorrect qty. Please check manually!");
         }

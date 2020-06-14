@@ -43,20 +43,6 @@ public class BaseFunc {
         return getElements(locator).isEmpty();
     }
 
-//    public List<WebElement> getElements(By locator) {
-//        Assert.assertFalse("No elements found", driver.findElements(locator).isEmpty());
-//        return driver.findElements(locator);
-//    }
-//
-//    public WebElement getElement(By locator) {
-//        try {
-//            return driver.findElement(locator);
-//        } catch (NoSuchElementException e) {
-//            Assert.fail("Element not found");
-//            return null;
-//        }
-//    }
-
     public void closePage() {
         driver.quit();
     }

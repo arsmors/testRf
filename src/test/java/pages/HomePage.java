@@ -29,7 +29,7 @@ public class HomePage {
     public void chooseRandomAdFromList() throws InterruptedException {
         Random num = new Random();
         int id = num.nextInt(10);
-        Thread.sleep(2000);
+        Thread.sleep(3000);
         getItems(id).click();
     }
 
