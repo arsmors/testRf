@@ -1,6 +1,6 @@
-Feature: A description
+Feature: Single add
 
-  Scenario: A scenario
+  Scenario: Open single add and add to favorites
     Given website with category "/transport/cars/audi/_group1/table.html?alladv=1"
     When user open single ad
     And add to favorites

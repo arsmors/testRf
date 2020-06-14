@@ -1,6 +1,6 @@
-Feature: D description
+Feature: Add and Remove ads
 
-  Scenario: D scenario
+  Scenario: Add multiple ads to favorites, and then remove ads
     Given website with category "/transport/cars/audi/_group1/table.html?alladv=1"
     When user "add" 2 ads in favorites
     Then ads are displayed on page

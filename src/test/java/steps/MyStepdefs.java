@@ -21,28 +21,28 @@ public class MyStepdefs {
     }
 
     @When("user open single ad")
-    public void userDrilldownIntoAd() throws InterruptedException {
+    public void userDrilldownIntoAd() {
         homePage.chooseRandomAdFromList();
     }
 
     @And("add to favorites")
-    public void addToFavorites() throws InterruptedException {
+    public void addToFavorites() {
         favoritesPage.addToFavorites();
     }
 
     @Then("ads are displayed on page")
-    public void adsAreDisplayedOnPage() throws InterruptedException {
+    public void adsAreDisplayedOnPage() {
         homePage.openHomePage("/favorites.html");
         favoritesPage.checkAllAdsDisplayedOnPage();
     }
 
     @Then("ads count on page is similar to memo count on toolbar")
-    public void adsCountOnPageIsSimilarToMemoCountOnToolbar() throws InterruptedException {
+    public void adsCountOnPageIsSimilarToMemoCountOnToolbar() {
         favoritesPage.checkMemoToolbarHasCount();
     }
 
     @When("user {string} {int} ads in favorites")
-    public void userAddAdsToFavorites(String addRemove, int ads) throws InterruptedException {
+    public void userAddAdsToFavorites(String addRemove, int ads) {
         homePage.addAds(addRemove, ads);
     }
 

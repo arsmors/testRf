@@ -23,9 +23,7 @@ public class FavoritesPage {
         return baseFunc.getElement(MEMOID).getText();
     }
 
-    public void addToFavorites() throws InterruptedException {
-//        Thread.sleep(2000);
-//        baseFunc.waitPageLoading(baseFunc.driver);
+    public void addToFavorites() {
         baseFunc.getElement(ADDTOFAVORITES).click();
     }
 
@@ -33,14 +31,12 @@ public class FavoritesPage {
         baseFunc.getElement(FAVPAGE).click();
     }
 
-    public void checkAllAdsDisplayedOnPage() throws InterruptedException {
-//        Thread.sleep(3000);
+    public void checkAllAdsDisplayedOnPage() {
         List<WebElement> listOfElements = baseFunc.getElements(MEMOPAGES);
         assertFalse("ads are not added to favorites", listOfElements.isEmpty());
     }
 
     public void checkMemoToolbarHasCount() {
-//        baseFunc.waitPageLoading(baseFunc.driver);
         List<WebElement> listOfElements = baseFunc.getElements(MEMOPAGES);
 
         int ads = listOfElements.size();

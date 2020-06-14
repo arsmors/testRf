@@ -1,6 +1,6 @@
-Feature: B description
+Feature: Multiple ads
 
-  Scenario: B scenario
+  Scenario: Add multiple ads to favorites
     Given website with category "/transport/cars/audi/_group1/table.html?alladv=1"
     When user "add" 2 ads in favorites
     Then ads are displayed on page

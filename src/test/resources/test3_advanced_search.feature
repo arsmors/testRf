@@ -1,6 +1,6 @@
-Feature: C description
+Feature: Advanced search
 
-  Scenario: C scenario
+  Scenario: Search for an item and add multiple ads to favorites
     When user search for "samsung" item
     And user "add" 2 ads in favorites
     Then ads are displayed on page
