@@ -1,3 +1,5 @@
+package steps;
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
@@ -42,7 +44,6 @@ public class MyStepdefs {
     @When("user {string} {int} ads in favorites")
     public void userAddAdsToFavorites(String addRemove, int ads) throws InterruptedException {
         homePage.addAds(addRemove, ads);
-
     }
 
     @When("user search for {string} item")
