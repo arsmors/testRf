@@ -29,7 +29,8 @@ public class HomePage {
     public void chooseRandomAdFromList() throws InterruptedException {
         Random num = new Random();
         int id = num.nextInt(10);
-        Thread.sleep(3000);
+//        Thread.sleep(3000);
+        baseFunc.waitPageisFullyLoaded(baseFunc.driver);
         getItems(id).click();
     }
 

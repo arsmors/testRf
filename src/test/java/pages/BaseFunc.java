@@ -3,6 +3,7 @@ package pages;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.List;
@@ -24,12 +25,19 @@ public class BaseFunc {
         driver.get(url);
     }
 
+    public void waitPageisFullyLoaded(WebDriver driver) {
+        wait.until((ExpectedCondition<Object>) webDriver ->
+                        ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete"));
+    }
+
     public WebElement getElement(By locator) {
+        waitPageisFullyLoaded(driver);
         Assert.assertFalse("Element is not found!", isElementPresent(locator));
         return driver.findElement(locator);
     }
 
     public List<WebElement> getElements(By locator) {
+        waitPageisFullyLoaded(driver);
         Assert.assertFalse("Elements not found", driver.findElements(locator).isEmpty());
         return driver.findElements(locator);
     }
