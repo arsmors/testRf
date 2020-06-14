@@ -39,9 +39,9 @@ public class MyStepdefs {
         favoritesPage.checkMemoToolbarHasCount();
     }
 
-    @When("user add {int} ads to favorites")
-    public void userAddAdsToFavorites(int ads) throws InterruptedException {
-        homePage.addAds(ads);
+    @When("user {string} {int} ads in favorites")
+    public void userAddAdsToFavorites(String addRemove, int ads) throws InterruptedException {
+        homePage.addAds(addRemove, ads);
 
     }
 
@@ -54,12 +54,5 @@ public class MyStepdefs {
     @And("close browser")
     public void closeBrowser() {
         baseFunc.closePage();
-    }
-
-
-    @When("user delete {int} ads from favorites")
-    public void userDeleteAdsFromFavorites(int ads) throws InterruptedException {
-        homePage.openHomePage("/favorites.html");
-        homePage.removeAds(ads);
     }
 }

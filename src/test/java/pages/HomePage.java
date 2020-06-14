@@ -37,30 +37,24 @@ public class HomePage {
         getItems(id).click();
     }
 
-    public void addAds(int ads) throws InterruptedException {
+    public void addAds(String addRemove, int ads) throws InterruptedException {
         List<WebElement> items = baseFunc.getElements(ADS);
+
         for (int i = 0; i < ads; i++) {
             Actions builder = new Actions(baseFunc.driver);
             builder.moveToElement(items.get(i)).perform();
             JavascriptExecutor executor = (JavascriptExecutor) baseFunc.driver;
             Thread.sleep(3000);
-            executor.executeScript("arguments[0].click();", baseFunc.getElement(AddToFavIcon));
+            if(addRemove.equals("add")) {
+                executor.executeScript("arguments[0].click();", baseFunc.getElement(AddToFavIcon));
+            } else {
+                executor.executeScript("arguments[0].click();", baseFunc.getElement(RemoveFromFavIcon));
+            }
         }
     }
 
     private WebElement getItems(int id) {
         List<WebElement> items = baseFunc.getElements(MAIN);
         return items.get(id);
-    }
-
-    public void removeAds(int ads) throws InterruptedException {
-        List<WebElement> items = baseFunc.getElements(ADS);
-        for (int i = 0; i < ads; i++) {
-            Actions builder = new Actions(baseFunc.driver);
-            builder.moveToElement(items.get(i)).perform();
-            JavascriptExecutor executor = (JavascriptExecutor) baseFunc.driver;
-            Thread.sleep(3000);
-            executor.executeScript("arguments[0].click();", baseFunc.getElement(RemoveFromFavIcon));
-        }
     }
 }
